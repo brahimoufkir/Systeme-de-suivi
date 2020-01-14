@@ -1,0 +1,111 @@
+<!DOCTYPE html "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:fragment="head-tag">
+<title>Leave Manage System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" th:href="@{/css/morris.css}" type="text/css"/>
+<!-- Graph CSS -->
+<link th:href="@{/css/font-awesome.css}" rel="stylesheet"> 
+<!-- jQuery -->
+<script th:src="@{/js/jquery-2.2.0.min.js}"></script>
+<!-- //jQuery -->
+<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!-- lined-icons -->
+<!-- <link rel="stylesheet" th:href="@{/css/icon-font.min.css}" type='text/css' /> -->
+<!-- //lined-icons -->
+<link rel="shortcut icon" th:href="@{/img/favicon.png}">
+<link th:href="@{/css/fullcalendar.min.css}" rel='stylesheet' />
+<link th:href="@{/css/fullcalendar.print.min.css}" rel='stylesheet' media='print' />
+<style type="text/css">
+
+.filterStatus {
+    position: relative;
+    top: 2px;
+}
+
+</style>
+</head> 
+<body>
+<div class="page-container">
+	<!--/content-inner-->
+	<div class="left-content">
+		<div class="mother-grid-inner">
+            <!--header start here-->
+			<div th:replace="nav :: nav"></div>
+
+			<!--heder end here-->
+			<ol class="breadcrumb">
+	            <li class="breadcrumb-item"><a th:href="@{/user/home}">Home</a> <i class="fa fa-angle-right"></i></li>
+	        </ol>
+     
+
+
+			<!--inner block start here-->
+			<div class="inner-block">
+			
+			</div>
+			<!--inner block end here-->
+			<!--copy rights start here-->
+			<div th:replace="footer :: footer"></div>
+
+			<!-- script-for sticky-nav -->
+				<script>
+					$(document).ready(function() {
+						 var navoffeset=$(".header-main").offset().top;
+						 $(window).scroll(function(){
+							var scrollpos=$(window).scrollTop(); 
+							if(scrollpos >=navoffeset){
+								$(".header-main").addClass("fixed");
+							}else{
+								$(".header-main").removeClass("fixed");
+							}
+						 });
+						 
+					});
+				</script>
+				<!-- /script-for sticky-nav -->
+			</div>	
+			<!--COPY rights end here-->
+		</div>
+	</div>
+  <!--//content-inner-->
+			<!--/sidebar-menu-->
+	<div th:replace="header :: header"></div>
+
+	<script>
+							var toggle = true;
+										
+							$(".sidebar-icon").click(function() {                
+							  if (toggle)
+							  {
+								$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+								$("#menu span").css({"position":"absolute"});
+							  }
+							  else
+							  {
+								$(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+								setTimeout(function() {
+								  $("#menu span").css({"position":"relative"});
+								}, 400);
+							  }
+											
+											toggle = !toggle;
+										});
+							</script>
+<!--js -->
+<script th:src="@{/js/jquery.nicescroll.js}"></script>
+<script th:src="@{/js/scripts.js}"></script>
+<!-- Bootstrap Core JavaScript -->
+   <script th:src="@{/js/bootstrap.min.js}"></script>
+   <!-- /Bootstrap Core JavaScript -->	   
+
+</body>
+</html>

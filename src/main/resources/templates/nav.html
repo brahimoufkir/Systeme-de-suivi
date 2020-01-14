@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    ...
+</head>
+<body>
+<div th:fragment="nav">
+    <div class="header-main">
+        <div class="" style="float:left;">
+            <h2><a th:href="@{/user/home}" >Système de suivi des marchés</a></h2>
+        </div>
+        <div class="profile_details w3l" style="float:right;">
+            <ul>
+                <li class="dropdown profile_details_drop">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <div class="profile_img">
+                            <span class="prfil-img"><img th:src="@{/img/profile.jpg}" alt=""> </span>
+                            <div class="user-name">
+                                <p sec:authentication="name"></p>
+                                <span sec:authentication="principal.authorities"></span>
+                            </div>
+                            <i class="fa fa-angle-down"></i>
+                            <i class="fa fa-angle-up"></i>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu drp-mnu">
+                        <li> <a th:href="@{/user/change-password}"><i class="fa fa-user"></i> Profile</a> </li>
+                        <li> <a th:href="@{/logout}"><i class="fa fa-sign-out"></i> Logout</a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+</body>
+</html>

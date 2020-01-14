@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    ...
+</head>
+<body>
+<div th:fragment="header">
+    <div class="sidebar-menu">
+        <header class="logo1">
+            <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+        </header>
+        <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+        <div class="menu">
+            <ul id="menu" >
+                <li><a th:href="@{/user/home}"><i class="fa fa-home"></i> <span>Home</span><div class="clearfix"></div></a></li>
+
+                <li sec:authorize="hasAuthority('Manager')"><a th:href="@{/user/manage-users}"><i class="fa fa-users"></i> <span>Manage Users</span><div class="clearfix"></div></a></li>
+                <li sec:authorize="hasAuthority('Manager')"><a th:href="@{/user/manage-tasks}"><i class="fa fa-tasks"></i> <span>Manage Tasks</span><div class="clearfix"></div></a></li>
+                <li sec:authorize="hasAuthority('Manager')"><a th:href="@{/user/manage-projects}"><i class="fa fa-calendar-check-o"></i> <span>Manage Projects</span><div class="clearfix"></div></a></li>
+                <li sec:authorize="hasAuthority('Directeur')"><a th:href="@{/user/all-users}"><i class="fa fa-users"></i> <span>All Users</span><div class="clearfix"></div></a></li>
+                <li sec:authorize="hasAuthority('Directeur')"><a th:href="@{/user/all-leaves}"><i class="fa fa-calendar-check-o"></i> <span>All Tasks</span><div class="clearfix"></div></a></li>
+                <li sec:authorize="hasAuthority('Directeur')"><a th:href="@{/user/all-projects}"><i class="fa fa-calendar-check-o"></i> <span>All Projects</span><div class="clearfix"></div></a></li>
+                <li sec:authorize="hasAuthority('Directeur')"><a th:href="@{/user/manage-projects}"><i class="fa fa-calendar-check-o"></i> <span>Manage Projects</span><div class="clearfix"></div></a></li>
+
+                <li><a th:href="@{/user/apply-project}" sec:authorize="hasAuthority('Manager')" ><i class="fa fa-calendar-plus-o"></i> <span>Create project</span><div class="clearfix"></div></a></li>
+
+                <li sec:authorize="!hasAuthority('Directeur')"><a th:href="@{/user/create-task}"><i class="fa fa-plus-circle"></i> <span>Create Task</span><div class="clearfix"></div></a></li>
+
+                <li sec:authorize="!hasAuthority('Directeur')"><a th:href="@{/user/my-tasks}"><i class="fa fa-calendar-check-o"></i> <span>My Tasks</span><div class="clearfix"></div></a></li>
+
+                <li> <a th:href="@{/logout}"><i class="fa fa-sign-out"></i> Logout</a> </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div></div>
+</body>
+</html>

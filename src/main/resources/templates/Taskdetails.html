@@ -1,0 +1,141 @@
+<!DOCTYPE html "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd" >
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+          xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <title>Manage Users</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!-- Bootstrap Core CSS -->
+        <link th:href="@{/css/bootstrap.min.css}" rel='stylesheet' type='text/css' />
+        <!-- Custom CSS -->
+        <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" th:href="@{/css/morris.css}" type="text/css"/>
+        <!-- Graph CSS -->
+        <link th:href="@{/css/font-awesome.css}" rel="stylesheet">
+        <!-- jQuery -->
+        <script th:src="@{/js/jquery-2.2.0.min.js}"></script>
+        <!-- //jQuery -->
+        <!-- tables -->
+        <link rel="stylesheet" type="text/css" th:href="@{/css/table-style.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/basictable.css}" />
+        <script type="text/javascript" th:src="@{/js/jquery.basictable.min.js}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                $('#table-two-axis').basictable();
+
+            });
+        </script>
+        <!-- //tables -->
+        <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+        <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <!-- lined-icons -->
+        <link rel="stylesheet" th:href="@{/css/icon-font.min.css}" type='text/css' />
+        <!-- //lined-icons -->
+        <link rel="shortcut icon" th:href="@{/img/favicon.png}">
+    </head>
+    <body>
+    <div class="page-container">
+        <div class="left-content">
+            <div class="mother-grid-inner">
+                <!--header start here-->
+                <div th:replace="nav :: nav"></div>
+
+                <!--heder end here-->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a th:href="@{/user/home}">Home</a> <i class="fa fa-angle-right"></i> Manage Users</li>
+                </ol>
+                <div class="grid-form1">
+                    <!-- tables -->
+                    <div class="alert alert-info" th:if="${(param.successMessage != null)}">
+                        <span th:text="${param.successMessage[0]}"></span>
+                    </div>
+                    <!--/content-inner-->
+                    <div class="row" >
+                        <div class="col" style="padding-left:60px;padding-right:60px;">
+                            <div class="page-header">
+                                <h1> Projet N° <span th:text="${task.projet?.id}+' : '" ></span><span th:text="${task.projet?.nom}+' '" style="font-size: 25px; color: #008DE7;"></span></h1>
+                            </div>
+                            <div class="page-header"  style="margin-bottom: 0px;margin-top: 0px;">
+                                <span th:if='${task.completed.equals("1")}' class="badge badge-info"  style="background-color:#5cb85c;">Achevé</span>
+                                <span th:if='${task.completed.equals("0")}' class="badge badge-info"  style="background-color:#d9534f;">En cours</span>
+                                <h3 style="margin-top: 10px;margin-bottom: 0px;" > Tâche N° <span th:text="${task.id}+' :'" ></span><span th:text="' '+${task.nomTache}" style="font-size: 18px; color: #333;"></span><small class="pull-right"><span style="font-size:14px;" th:text="'duration : '+${task.duration} + 'jrs'" ></span></small></h3>
+                            </div>
+                            <div class="page-header" style="margin-bottom: 20px;margin-top: 10px;">
+                                <h3 style="margin-bottom: 0px;">comments<small class="pull-right" style="font-size:14px; "><span th:text="${size}+' comments'" ></span></small></h3>
+                            </div>
+                            <div class="comments-list" th:each="commentaire,iterStat : ${comments}"  >
+                                <div class="media" >
+                                    <div class="pull-right">
+                                        <p th:text="${{commentaire.createdAt}}" style="height: 10px;"><small >ago</small></p>
+                                        <span class="badge badge-info pull-right" th:if='${commentaire.type.equals("QUOTIDIEN")}' th:text="${{commentaire.type}}" style="background-color:#5cb85c;"></span>
+                                        <span class="badge badge-info pull-right" th:if='${commentaire.type.equals("INFORMATIF")}' th:text="${{commentaire.type}}" style="background-color:#17a2b8;"></span>
+                                        <span class="badge badge-info pull-right" th:if='${commentaire.type.equals("URGENT")}' th:text="${{commentaire.type}}" style="background-color:#d9534f;"></span>
+                                    </div>
+                                    <a class="media-left" href="#">
+                                        <img src="http://lorempixel.com/40/40/people/1/">
+                                    </a>
+                                    <div class="media-body">
+
+                                        <h4 class="media-heading user_name" th:text="${commentaire.employee?.nom} + ' ' + ${commentaire.employee?.prenom}"></h4>
+                                        <p th:text="${commentaire.message}"></p>
+                                        </br>
+                                    </div>
+                                </div>
+                            </div>
+                            <tr></tr>
+                            <br>
+                            <form th:action="@{/user/show-task/{id} (id=${task.id})}" th:object="${comment}" method="post">
+                                <textarea class="form-control"  th:field="*{message}" placeholder="write a comment..." rows="3"></textarea>
+                                <br>
+                                <div class="">
+                                    <span class="label label-primary"><input type="radio" id="pending" th:field="*{type}" value="0" class="filterStatus" checked="checked"> Quotidien</span>
+                                    <span class="label label-success"><input type="radio" id="accepted" th:field="*{type}" value="1" class="filterStatus"> Informatif</span>
+                                    <span class="label label-danger"><input type="radio" id="rejected" th:field="*{type}" value="2" class="filterStatus"> Urgent</span>
+
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-info pull-right" >Post</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--//content-inner-->
+    <!--/sidebar-menu-->
+    <div th:replace="header :: header"></div>
+
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <!--js -->
+    <script th:src="@{/js/jquery.nicescroll.js}"></script>
+    <script th:src="@{/js/scripts.js}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- /Bootstrap Core JavaScript -->
+
+    </body>
+    </html>
