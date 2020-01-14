@@ -82,7 +82,7 @@ INSERT INTO `employee` (`id`, `active`, `date_naissance`, `email`, `nom`, `passw
 (1, b'1', '19/04/1997', 'fettah.souad@gmail.com', 'souad', '$2a$10$ys1I8dqLEYAJLSJ556x4EO8nUZVHldn20MhCHp/FkyMCWuqr.Vhl.', 'fettah', NULL, NULL, 1, 1),
 (2, b'1', '19/04/1997', 'mouaad.oumnia@gmail.com', 'oumnia', '$2a$10$.NTlCeJpxadg3m2CCQm3ve2mbegj9QySip5JzAs0ufV7KWBS3aqTK', 'mouaad', NULL, NULL, 2, 2),
 (3, b'1', '19/04/1997', 'shaili.oumaima@gmail.com', 'shaili', '$2a$10$AtJy.UuDCFm8a6TE/GI9iOWj4t4VtHtwtOwnChylfFIB.JjXMBb8u', 'oumaima', NULL, NULL, 1, 3),
-(4, b'1', '19/04/1997', 'oufkir.ibrahim@email.com', 'oufkir', '$2a$10$1AEl6YAAz0tsCI4sh12lre/ecS0KLmUu2SzozPdUlZM1tWumxQhPu', 'ibrahim', NULL, NULL, 3, 2);
+(4, b'1', '19/04/1997', 'oufkir.ibrahim@gmail.com', 'oufkir', '$2a$10$1AEl6YAAz0tsCI4sh12lre/ecS0KLmUu2SzozPdUlZM1tWumxQhPu', 'ibrahim', NULL, NULL, 3, 2);
 
 -- --------------------------------------------------------
 
