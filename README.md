@@ -59,4 +59,15 @@ Le système de gestion et suivi des marchés est une application Web de gestion 
       #### - Employee
       
    ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/mytasks.PNG)
+   
+## Gestion des utilisateurs
+
+  - Le manager peut consulter les profils de ses Employées, l'employée aussi peut consulter et modifier son propre profile. Et le directeur à un accès à tous les utilisateurs.
+ 
+   ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/usersManager.PNG)
+ 
      
+## Inscription
+ 
+   ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/register.PNG)
+ 
