@@ -24,7 +24,32 @@ Le système de gestion et suivi des marchés est une application Web de gestion 
 
 ### How To Use
 
-# Page de connexion
+
+## Page de connexion
    - Veuillez saisir les informations selon le role souhaite (Manager-Directeur-Employee)
    
    ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/accueil.PNG)
+  
+   
+ ## Création des projets
+ 
+   ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/createprojects.PNG)
+
+## Editer les projets
+   - Un projet (représentant les besoins) est validé vers la fin par le chef de service: soit accepté soit invalide.
+   
+   ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/allprojectsDirecteur.PNG)
+   
+  ## Création des tâches
+   - L'employé exprime des besoins contenant tous les détails requis des tâches.
+ 
+   ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/createtask.PNG)
+   
+  ## Acceptation des tâches
+   - Le chef de service peur valider ou de surveiller l'avancement des tâches .
+ 
+   ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/managetask.PNG)
+   
+   
+   ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/homeManager.PNG)
+   
