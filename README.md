@@ -27,4 +27,4 @@ Le système de gestion et suivi des marchés est une application Web de gestion 
 # Page de connexion
    - Veuillez saisir les informations selon le role souhaite (Manager-Directeur-Employee)
    
-   https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/accueil.PNG
+   ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/accueil.PNG)
