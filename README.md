@@ -53,3 +53,10 @@ Le système de gestion et suivi des marchés est une application Web de gestion 
    
    ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/homeManager.PNG)
    
+   ## Affichage des tâches
+   - Le chef de service peur voir les taches de ses employées, et chaque employée peut visualiser ses propres taches. Sauf le directeur qui peut consulter tous les taches
+ 
+      #### - Employee
+      
+   ![Image description](https://github.com/brahimoufkir/Systeme-de-suivi/blob/master/images/mytasks.PNG)
+     
